@@ -328,7 +328,7 @@
   font-size: 0.9rem;
 }
 
-.show-phrase-modal h3 {
+.show-phrase-modal h1 {
   margin: 0 0 20px;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 2.6rem;
@@ -356,6 +356,13 @@
   height: 1px;
   flex: 1;
   background: rgba(190, 44, 54, 0.22);
+}
+
+.empty-message {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
 }
 
 @media (max-width: 480px) {
