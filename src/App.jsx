@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { categoryMeta, mockPhrases } from "./data/mockPhrases";
+import categoryMeta from "./data/categories";
+import phrases from "./data/phrases";
 import "./styles/app.css";
 
 const getCategoryLabel = (value) =>
@@ -86,7 +87,7 @@ function Category({ onSelect, selectedCategory }) {
 
 function PhraseList({ category, onBack, onSelectPhrase }) {
   const filteredPhrases = useMemo(
-    () => mockPhrases.filter((phrase) => phrase.category === category),
+    () => phrases.filter((phrase) => phrase.category === category),
     [category],
   );
 
@@ -210,6 +211,9 @@ function App() {
       {step === "list" && selectedCategory && (
         <PhraseList
           category={selectedCategory}
+          categoryIcon={getCategoryIcon(selectedCategory)}
+          categoryLabel={getCategoryLabel(selectedCategory)}
+          onListen={(phrase) => speakJapanese(phrase.japanese)}
           onBack={handleBackToCategory}
           onSelectPhrase={handlePhraseSelect}
         />
