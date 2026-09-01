@@ -12,6 +12,20 @@
 - 모바일 화면 대응
 - 일본 여행 분위기의 헤더, 푸터, 배경 스타일
 
+## 화면 미리보기
+
+### 홈 화면
+
+![Nihongo SOS 홈 화면](docs/home.jpg)
+
+### 상황 선택
+
+![Nihongo SOS 상황 선택 화면](docs/categories.jpg)
+
+### 표현 목록
+
+![Nihongo SOS 표현 목록 화면](docs/phrases.jpg)
+
 ## 실행 방법
 
 Node.js가 설치되어 있어야 합니다.
