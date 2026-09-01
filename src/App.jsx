@@ -1,5 +1,7 @@
-import { useMemo, useState } from 'react';
-import { categoryMeta, mockPhrases } from './data/mockPhrases';
+import { useState } from 'react';
+import categoryMeta from './data/categories';
+import PhraseList from './pages/PhraseList';
+import ShowPhrase from './pages/ShowPhrase';
 import './styles/app.css';
 
 const getCategoryLabel = (value) =>
@@ -51,71 +53,6 @@ function Category({ onSelect, selectedCategory }) {
             </button>
           );
         })}
-      </div>
-    </section>
-  );
-}
-
-function PhraseList({ category, onBack, onSelectPhrase }) {
-  const filteredPhrases = useMemo(
-    () => mockPhrases.filter((phrase) => phrase.category === category),
-    [category]
-  );
-
-  return (
-    <section className="screen list-screen">
-      <div className="section-header stacked">
-        <button className="back-button" onClick={onBack} type="button">
-          ← 뒤로
-        </button>
-        <div>
-          <p className="eyebrow">{getCategoryIcon(category)} 상황별 표현</p>
-          <h2>{getCategoryLabel(category)}</h2>
-        </div>
-      </div>
-
-      <div className="phrase-list">
-        {filteredPhrases.map((phrase) => (
-          <article key={phrase.id} className="phrase-card">
-            <p className="phrase-situation">{phrase.situation}</p>
-            <p className="phrase-korean">{phrase.korean}</p>
-            <p className="phrase-japanese">{phrase.japanese}</p>
-            <p className="phrase-pronunciation">{phrase.pronunciation}</p>
-
-            <div className="phrase-actions">
-              <button
-                className="small-button listen"
-                type="button"
-                onClick={() => speakJapanese(phrase.japanese)}
-              >
-                🔊 듣기
-              </button>
-              <button
-                className="small-button show"
-                type="button"
-                onClick={() => onSelectPhrase(phrase)}
-              >
-                👀 보여주기
-              </button>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function ShowPhrase({ phrase, onClose }) {
-  if (!phrase) return null;
-
-  return (
-    <section className="screen show-screen">
-      <div className="show-phrase-modal">
-        <p className="show-title">{phrase.situation}</p>
-        <h3>{phrase.japanese}</h3>
-        <button className="primary-button" onClick={onClose} type="button">
-          닫기
-        </button>
       </div>
     </section>
   );
@@ -175,6 +112,9 @@ function App() {
       {step === 'list' && selectedCategory && (
         <PhraseList
           category={selectedCategory}
+          categoryIcon={getCategoryIcon(selectedCategory)}
+          categoryLabel={getCategoryLabel(selectedCategory)}
+          onListen={(phrase) => speakJapanese(phrase.japanese)}
           onBack={handleBackToCategory}
           onSelectPhrase={handlePhraseSelect}
         />
