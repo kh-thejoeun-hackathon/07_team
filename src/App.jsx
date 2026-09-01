@@ -26,6 +26,31 @@ function Home({ onStart }) {
   );
 }
 
+function Header({ onHome }) {
+  return (
+    <header className="site-header">
+      <button className="brand-button" onClick={onHome} type="button">
+        <span className="brand-symbol">日の</span>
+        <span>
+          <strong>Nihongo SOS</strong>
+          <small>旅のことば</small>
+        </span>
+      </button>
+      <span className="header-kana">日本語 여행 회화</span>
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="site-footer">
+      <span className="footer-line" />
+      <p>いってらっしゃい · 편안한 일본 여행을 위해</p>
+      <span className="footer-line" />
+    </footer>
+  );
+}
+
 function Category({ onSelect, selectedCategory }) {
   return (
     <section className="screen category-screen">
@@ -35,7 +60,7 @@ function Category({ onSelect, selectedCategory }) {
       </div>
 
       <div className="category-grid">
-        {categoryMeta.map((item) => {
+        {categoryMeta.map((item, index) => {
           const active = selectedCategory === item.value;
           return (
             <button
@@ -46,6 +71,7 @@ function Category({ onSelect, selectedCategory }) {
               onClick={() => onSelect(item.value)}
               type="button"
             >
+              <span className="category-number">{String(index + 1).padStart(2, '0')}</span>
               <span className="category-icon">{item.icon}</span>
               <span className="category-label">{item.label}</span>
             </button>
@@ -143,6 +169,12 @@ function App() {
     setStep('category');
   };
 
+  const handleHome = () => {
+    setSelectedCategory(null);
+    setSelectedPhrase(null);
+    setStep('home');
+  };
+
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
     setStep('list');
@@ -165,6 +197,7 @@ function App() {
 
   return (
     <div className="app-shell">
+      <Header onHome={handleHome} />
       {step === 'home' && <Home onStart={handleStart} />}
       {step === 'category' && (
         <Category
@@ -182,6 +215,7 @@ function App() {
       {step === 'show' && (
         <ShowPhrase phrase={selectedPhrase} onClose={handleCloseShow} />
       )}
+      <Footer />
     </div>
   );
 }

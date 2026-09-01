@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Pretendard', 'Segoe UI', sans-serif;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #1c1d1f;
@@ -10,13 +10,14 @@
   -moz-osx-font-smoothing: grayscale;
   --primary: #ff7b54;
   --primary-deep: #eb5d38;
+  --vermilion: #be2c36;
   --accent: #ffc857;
   --sky: #dff3ff;
   --card: rgba(255, 255, 255, 0.9);
   --text: #1b1d22;
   --muted: #687387;
   --border: #e7edf6;
-  --shadow: 0 12px 34px rgba(30, 50, 92, 0.12);
+  --shadow: 0 14px 28px rgba(32, 43, 64, 0.08);
 }
 
 * {
@@ -31,7 +32,11 @@ html, body, #root {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(180deg, #fffdf9 0%, #f3f7fb 100%);
+  background-color: #fffdf9;
+  background-image: linear-gradient(rgba(190, 44, 54, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(190, 44, 54, 0.028) 1px, transparent 1px),
+    linear-gradient(180deg, #fffdf9 0%, #f3f7fb 100%);
+  background-size: 28px 28px, 28px 28px, auto;
   color: var(--text);
 }
 
