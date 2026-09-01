@@ -1,12 +1,12 @@
-import { useMemo, useState } from 'react';
-import { categoryMeta, mockPhrases } from './data/mockPhrases';
-import './styles/app.css';
+import { useMemo, useState } from "react";
+import { categoryMeta, mockPhrases } from "./data/mockPhrases";
+import "./styles/app.css";
 
 const getCategoryLabel = (value) =>
   categoryMeta.find((item) => item.value === value)?.label || value;
 
 const getCategoryIcon = (value) =>
-  categoryMeta.find((item) => item.value === value)?.icon || '📌';
+  categoryMeta.find((item) => item.value === value)?.icon || "📌";
 
 function Home({ onStart }) {
   return (
@@ -65,13 +65,15 @@ function Category({ onSelect, selectedCategory }) {
           return (
             <button
               key={item.value}
-              className={`category-card ${active ? 'active' : ''} ${
-                item.value === 'emergency' ? 'emergency' : ''
+              className={`category-card ${active ? "active" : ""} ${
+                item.value === "emergency" ? "emergency" : ""
               }`}
               onClick={() => onSelect(item.value)}
               type="button"
             >
-              <span className="category-number">{String(index + 1).padStart(2, '0')}</span>
+              <span className="category-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <span className="category-icon">{item.icon}</span>
               <span className="category-label">{item.label}</span>
             </button>
@@ -85,7 +87,7 @@ function Category({ onSelect, selectedCategory }) {
 function PhraseList({ category, onBack, onSelectPhrase }) {
   const filteredPhrases = useMemo(
     () => mockPhrases.filter((phrase) => phrase.category === category),
-    [category]
+    [category],
   );
 
   return (
@@ -148,12 +150,12 @@ function ShowPhrase({ phrase, onClose }) {
 }
 
 function speakJapanese(text) {
-  if (!('speechSynthesis' in window)) {
+  if (!("speechSynthesis" in window)) {
     return;
   }
 
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'ja-JP';
+  utterance.lang = "ja-JP";
   utterance.rate = 0.9;
   utterance.pitch = 1;
   window.speechSynthesis.cancel();
@@ -161,58 +163,58 @@ function speakJapanese(text) {
 }
 
 function App() {
-  const [step, setStep] = useState('home');
+  const [step, setStep] = useState("home");
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedPhrase, setSelectedPhrase] = useState(null);
 
   const handleStart = () => {
-    setStep('category');
+    setStep("category");
   };
 
   const handleHome = () => {
     setSelectedCategory(null);
     setSelectedPhrase(null);
-    setStep('home');
+    setStep("home");
   };
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
-    setStep('list');
+    setStep("list");
   };
 
   const handleBackToCategory = () => {
-    setStep('category');
+    setStep("category");
     setSelectedPhrase(null);
   };
 
   const handlePhraseSelect = (phrase) => {
     setSelectedPhrase(phrase);
-    setStep('show');
+    setStep("show");
   };
 
   const handleCloseShow = () => {
     setSelectedPhrase(null);
-    setStep('list');
+    setStep("list");
   };
 
   return (
     <div className="app-shell">
       <Header onHome={handleHome} />
-      {step === 'home' && <Home onStart={handleStart} />}
-      {step === 'category' && (
+      {step === "home" && <Home onStart={handleStart} />}
+      {step === "category" && (
         <Category
           onSelect={handleCategorySelect}
           selectedCategory={selectedCategory}
         />
       )}
-      {step === 'list' && selectedCategory && (
+      {step === "list" && selectedCategory && (
         <PhraseList
           category={selectedCategory}
           onBack={handleBackToCategory}
           onSelectPhrase={handlePhraseSelect}
         />
       )}
-      {step === 'show' && (
+      {step === "show" && (
         <ShowPhrase phrase={selectedPhrase} onClose={handleCloseShow} />
       )}
       <Footer />

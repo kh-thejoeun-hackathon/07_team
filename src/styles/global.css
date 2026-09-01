@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #1c1d1f;
@@ -24,7 +24,9 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   min-height: 100%;
   min-height: 100vh;
@@ -33,14 +35,21 @@ html, body, #root {
 body {
   min-height: 100vh;
   background-color: #fffdf9;
-  background-image: linear-gradient(rgba(190, 44, 54, 0.028) 1px, transparent 1px),
+  background-image:
+    linear-gradient(rgba(190, 44, 54, 0.028) 1px, transparent 1px),
     linear-gradient(90deg, rgba(190, 44, 54, 0.028) 1px, transparent 1px),
     linear-gradient(180deg, #fffdf9 0%, #f3f7fb 100%);
-  background-size: 28px 28px, 28px 28px, auto;
+  background-size:
+    28px 28px,
+    28px 28px,
+    auto;
   color: var(--text);
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
   font: inherit;
 }
 

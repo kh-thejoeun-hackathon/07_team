@@ -50,7 +50,7 @@
 }
 
 .brand-button strong {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1rem;
   letter-spacing: 0.03em;
 }
@@ -130,7 +130,7 @@
   position: relative;
   z-index: 1;
   margin: 12px 0 12px;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 2.25rem;
   line-height: 1.25;
 }
@@ -145,13 +145,19 @@
   width: 100%;
   border: none;
   border-radius: 6px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-deep) 100%
+  );
   color: white;
   font-weight: 700;
   padding: 16px 18px;
   font-size: 1.06rem;
   box-shadow: 0 8px 16px rgba(190, 44, 54, 0.2);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .primary-button:hover {
@@ -166,7 +172,7 @@
 
 .section-header h2 {
   margin: 10px 0 0;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 2rem;
 }
 
@@ -188,8 +194,8 @@
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .category-card {
@@ -199,13 +205,16 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  min-height: 126px;
+  min-height: 112px;
   border: 1px solid var(--border);
   background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
   color: var(--text);
   border-radius: 10px;
-  padding: 16px 14px;
-  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  padding: 14px 8px;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .category-card:hover {
@@ -219,7 +228,7 @@
   top: 10px;
   left: 12px;
   color: var(--vermilion);
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 0.72rem;
 }
 
@@ -239,12 +248,13 @@
 
 .category-icon {
   margin-top: 7px;
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
 .category-label {
-  font-size: 0.98rem;
+  font-size: 0.86rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .phrase-list {
@@ -272,7 +282,7 @@
 
 .phrase-japanese {
   margin: 12px 0 8px;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.7rem;
   font-weight: 700;
   line-height: 1.5;
@@ -330,7 +340,7 @@
 
 .show-phrase-modal h3 {
   margin: 0 0 20px;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 2.6rem;
   line-height: 1.5;
   color: #1d2940;
@@ -342,7 +352,7 @@
   gap: 12px;
   padding: 0 4px 20px;
   color: var(--muted);
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 0.72rem;
   letter-spacing: 0.03em;
 }
@@ -394,6 +404,7 @@
 
   .category-grid {
     gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .category-card {
