@@ -16,15 +16,15 @@
 
 ### 홈 화면
 
-![Nihongo SOS 홈 화면](docs/home.jpg)
+![Nihongo SOS 홈 화면](docs/japane1.jpg)
 
 ### 상황 선택
 
-![Nihongo SOS 상황 선택 화면](docs/categories.jpg)
+![Nihongo SOS 상황 선택 화면](docs/japan2.jpg)
 
 ### 표현 목록
 
-![Nihongo SOS 표현 목록 화면](docs/phrases.jpg)
+![Nihongo SOS 표현 목록 화면](docs/japan3.jpg)
 
 ## 실행 방법
 
